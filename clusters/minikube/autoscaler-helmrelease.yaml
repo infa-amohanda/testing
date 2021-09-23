@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: autoscaler
+  namespace: default
+spec:
+  interval: 5m
+  releaseName: clusterautoscaleraddon
+  chart:
+    spec:
+      chart: auto-scaler
+      version: 9.10.3
+      sourceRef:
+        kind: HelmRepository
+        name: auto-scaler
+        namespace: default
+      interval: 1m
+  values:
+    image:
+      # image repo details
+      repository: infacloud-ct-base-docker.jfrog.io/cluster-autoscaler
+      tag: 1.18
+      pullPolicy: IfNotPresent
+      pullSecrets: 
+      - tpcdeploybot-creds
