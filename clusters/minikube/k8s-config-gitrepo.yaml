@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: k8s-config
+  namespace: aakash
+spec:
+  interval: 1m
+  url: https://github.com/infa-amohanda/k8s-config
+  ref:
+    branch: main
