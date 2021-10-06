@@ -19,6 +19,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  prune: true
   path: ./clusters/minikube
   sourceRef:
     kind: GitRepository
